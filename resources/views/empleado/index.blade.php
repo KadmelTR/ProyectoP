@@ -17,12 +17,16 @@ Mostrar las listas de empleados
         @foreach($empleados as $empleado)
         <tr>
             <td>{{ $empleado->id }}</td>
-            <td>{{ $empleado->Foto }}</td>
+            <td>
+                <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="150px" height="150px">
+            </td>
             <td>{{ $empleado->Nombre }}</td>
             <td>{{ $empleado->ApellidoPaterno }}</td>
             <td>{{ $empleado->ApellidoMaterno }}</td>
             <td>{{ $empleado->Correo }}</td>
-            <td>Editar | 
+            <td>
+               <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}">Editar</a> 
+             | 
                 <form action="{{ url('/empleado/'.$empleado->id) }}" method="post">
                     @csrf
                     {{ method_field('DELETE') }}
