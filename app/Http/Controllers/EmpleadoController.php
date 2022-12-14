@@ -43,10 +43,10 @@ class EmpleadoController extends Controller
         //
         $campos=[
             'Nombre'=>'required|string|max:100',
-            'ApellidoPaterno'=>'required|string|max100',
+            'ApellidoPaterno'=>'required|string|max:100',
             'ApellidoMaterno'=>'required|string|max:100',
             'Correo'=>'required|email',
-            'Foto'=>'required|max:10000|mimes:jpeg,png,jpg'
+            'Foto'=>'required|max:10000|mimes:jpeg,png,jpg',
         ];
         $mensaje=[
             'required'=>'El :attribute es requerido',
