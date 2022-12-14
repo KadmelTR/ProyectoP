@@ -1,3 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
 <h1>Mostrar las listas de empleados</h1>
 <br>
 @if(Session::has('mensaje'))
@@ -25,7 +30,7 @@
         <tr>
             <td>{{ $empleado->id }}</td>
             <td>
-                <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="150px" height="150px">
+                <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="100px" height="100px">
             </td>
             <td>{{ $empleado->Nombre }}</td>
             <td>{{ $empleado->ApellidoPaterno }}</td>
@@ -46,3 +51,5 @@
         @endforeach
     </tbody>
 </table>
+</div>
+@endsection

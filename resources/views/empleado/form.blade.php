@@ -18,7 +18,7 @@
     <label for="Foto">Foto</label>
     <br>
     @if(isset($empleado->Foto))
-    <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="150px" height="150px">
+    <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="100px" height="100px">
     @endif
     <input type="file" name="Foto" value="" id="Foto">
     <br>
