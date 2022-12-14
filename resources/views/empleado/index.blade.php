@@ -3,14 +3,15 @@
 @section('content')
 <div class="container">
 
-<h1>Mostrar las listas de empleados</h1>
 <br>
 @if(Session::has('mensaje'))
 {{ Session::get('mensaje') }}
 @endif
 
 <br>
-<a href="{{ url('empleado/create') }}">Registrar nuevo empleado</a>
+<a href="{{ url('empleado/create') }}" class="btn btn-success">Registrar nuevo empleado</a>
+<br>
+<br>
 <table class="table table-light">
     
     <thead class="thead-light">
@@ -30,19 +31,19 @@
         <tr>
             <td>{{ $empleado->id }}</td>
             <td>
-                <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="100px" height="100px">
+                <img class="img-thumbnail img-fluid" src="{{ asset('storage').'/'.$empleado->Foto }}" alt="{{ $empleado->Foto }}" width="100px" height="100px">
             </td>
             <td>{{ $empleado->Nombre }}</td>
             <td>{{ $empleado->ApellidoPaterno }}</td>
             <td>{{ $empleado->ApellidoMaterno }}</td>
             <td>{{ $empleado->Correo }}</td>
             <td>
-               <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}">Editar</a> 
+               <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">Editar</a> 
              | 
-                <form action="{{ url('/empleado/'.$empleado->id) }}" method="post">
+                <form action="{{ url('/empleado/'.$empleado->id) }}" method="post" class="d-inline">
                     @csrf
                     {{ method_field('DELETE') }}
-                    <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                    <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
 
                 </form>
 
